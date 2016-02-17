@@ -1,0 +1,15 @@
+---
+layout: default
+
+---
+<div class="container-fluid ">
+    <section id="content" class="row">
+        <div id="aside" class="col-md-3 col-lg-3">
+            ${include 'content/aside/aside.html'}
+        </div>
+        <div id="description" class="col-md-9 col-lg-9">
+            ${content}
+        </div>
+    </section>
+    ${include 'header.html'}
+</div>

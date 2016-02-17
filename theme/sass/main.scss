@@ -1,2 +1,87 @@
 @import "compass";
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container-fluid {
+  @extend body;
+}
+
+.row {
+  width: 100%;
+}
+
+div[class*="col-"] {
+}
+
+.active {
+  color: coral;
+}
+
+section#header {
+  background-color: chartreuse;
+  height: 90px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+section#content {
+
+  height: 100%;
+  padding-top: 90px;
+  margin: 0;
+
+  #aside {
+
+    padding: 20px;
+    background-color: #ededed;
+    height: 100%;
+    overflow: auto;
+
+    .row {
+      margin-left: 0;
+    }
+
+    .aside-title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .aside-menu {
+      font-size: 16px;
+      font-weight: bold;
+
+      ul {
+        list-style-type: none;
+        -moz-padding-start: 10px;
+        -webkit-padding-start: 10px;
+
+        ul {
+          font-size: 14px;
+          font-weight: normal;
+          -moz-padding-start: 20px;
+          -webkit-padding-start: 20px;
+        }
+
+        a:hover {
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  #description {
+    padding: 20px;
+    height: 100%;
+    overflow: auto;
+    overflow-wrap: break-word;
+  }
+
+}

@@ -1,0 +1,43 @@
+<%
+    def activated(menu) {
+        if (!page.active) {
+            page.active = menu.key
+            return "active"
+        }
+        return ""
+    }
+
+    def createMenu(menu, id) {
+        def list = StringBuilder.newInstance()
+        list << """<ul id="$id">"""
+        menu.each {
+            list << ((it.value.menu) ? wrapCollapsed(it) : wrapSimple(it))
+        }
+        list << """</ul>"""
+    }
+
+    def wrapCollapsed(menu) {
+        def id = menu.key.toLowerCase().trim().replace(" ", "-")
+        """<li>
+                <a class="collapsed ${activated(menu)}" data-toggle="collapse" aria-controls="inner-one" aria-expanded="false" data-target="#$id">
+                    ${menu.key}
+                </a>
+                ${createMenu(menu.value.menu, id)}
+            </li>
+        """
+    }
+
+    def wrapSimple(menu) {
+        """<li><a>${menu.key}</a></li>"""
+    }
+%>
+
+<div class="row aside-title">
+    <p>${page.aside.title}</p>
+</div>
+<div class="row aside-menu">
+    <%
+        def menu = createMenu(page.aside.menu, 'content-list')
+    %>
+    ${menu}
+</div>

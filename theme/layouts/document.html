@@ -1,0 +1,37 @@
+---
+layout: default
+aside:
+  title: Content
+  menu:
+    Item One:
+      template: content/description/itemone/index.html
+      menu:
+        Inner Item One:
+          template: content/description/itemone/inneritemone/index.html
+          menu:
+            First Inner:
+                template: content/description/itemone/firstinner/index.html
+            Second Inner:
+                template: content/description/itemone/secondinner/index.html
+    Item Two:
+      template: content/description/itemone/index.html
+    Item Three:
+      template: content/description/itemone/index.html
+    Item Four:
+      template: content/description/itemone/index.html
+    Item Five:
+      template: content/description/itemone/index.html
+
+---
+<div class="container-fluid ">
+    ${include 'header.html'}
+    <section id="content" class="row">
+        <div id="aside" class="col-md-2 col-lg-2">
+            ${include 'content/aside/aside.html'}
+        </div>
+        <div id="description" class="col-md-10 col-lg-10">
+            <!--${include 'content/description/description.html'}-->
+            ${include 'documentation/index.html'}
+        </div>
+    </section>
+</div>
